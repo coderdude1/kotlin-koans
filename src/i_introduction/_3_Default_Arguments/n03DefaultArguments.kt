@@ -13,13 +13,17 @@ fun todoTask3(): Nothing = TODO(
     """,
     documentation = doc2(),
     references = { name: String -> JavaCode3().foo(name); foo(name) })
-
-fun foo(name: String): String = todoTask3()
-
+//String name, int number, boolean toUpperCas
+fun foo(name: String = "default", number: Int = 42, toUpperCase: Boolean = false): String {
+    if (toUpperCase)
+        return name.toUpperCase() + number
+    else
+        return name + number
+}
+//a42b1C42D2 vs a0b1C0D2
 fun task3(): String {
-    todoTask3()
-//    return (foo("a") +
-//            foo("b", number = 1) +
-//            foo("c", toUpperCase = true) +
-//            foo(name = "d", number = 2, toUpperCase = true))
+    return (foo("a") +
+            foo("b", number = 1) +
+            foo("c", toUpperCase = true) +
+            foo(name = "d", number = 2, toUpperCase = true))
 }
