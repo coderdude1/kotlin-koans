@@ -14,13 +14,19 @@ fun todoTask3(): Nothing = TODO(
     documentation = doc2(),
     references = { name: String -> JavaCode3().foo(name); foo(name) })
 //String name, int number, boolean toUpperCas
-fun foo(name: String = "default", number: Int = 42, toUpperCase: Boolean = false): String {
-    if (toUpperCase)
-        return name.toUpperCase() + number
+fun foo(name: String = "default", number: Int = 42, toUpperCase: Boolean = false): String =
+    /* I changed mine to match the provieded answer
+    (if (toUpperCase)
+        name.toUpperCase()
     else
-        return name + number
-}
-//a42b1C42D2 vs a0b1C0D2
+        name) + number
+    */
+    (when (toUpperCase) {
+        true -> name.toUpperCase()
+        false -> name
+    })  + number
+
+
 fun task3(): String {
     return (foo("a") +
             foo("b", number = 1) +
