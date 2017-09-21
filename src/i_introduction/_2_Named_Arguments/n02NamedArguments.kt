@@ -19,11 +19,13 @@ fun todoTask2(): Nothing = TODO(
         Specify only 'prefix' and 'postfix' arguments.
 
         Don't forget to remove the 'todoTask2()' invocation which throws an exception.
+
+        note this fn def = TODO which is a fn defined in KotlinUtil.kt
     """,
     documentation = doc2(),
     references = { collection: Collection<Int> -> task1(collection); collection.joinToString() })
 
 fun task2(collection: Collection<Int>): String {
-    todoTask2()
-    return collection.joinToString()
+
+    return collection.joinToString(prefix = "{", postfix = "}")
 }
