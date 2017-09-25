@@ -2,7 +2,6 @@ package i_introduction._12_Extensions_On_Collections
 
 import util.TODO
 import util.doc12
-import java.util.*
 
 fun todoTask12(): Nothing = TODO(
     """
@@ -18,12 +17,10 @@ fun todoTask12(): Nothing = TODO(
 )
 
 fun task12(): List<Int> {
-    fun ArrayList<Int>.sortedDescending() {
-        Collections.sort(this, { x, y -> y - x})
-    }
+//    fun ArrayList<Int>.sortedDescending() {   //was already added to default kotlin collection extensions
+//        Collections.sort(this, { x, y -> y - x})
+//    }
 
-    val arrayList = arrayListOf(1, 5, 2)
-    arrayList.sortedDescending()
-    return arrayList
+    return arrayListOf(1, 5, 2).sortedDescending()
 }
 
