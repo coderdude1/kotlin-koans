@@ -6,6 +6,7 @@ import org.junit.Test
 
 class N14FilterMapKtTest {
     @Test fun testCitiesCustomersAreFrom() {
+        //note that shop is created in TestShop.kt, I think it's default visibility rules
         assertEquals(setOf(Canberra, Vancouver, Budapest, Ankara, Tokyo), shop.getCitiesCustomersAreFrom())
     }
 
