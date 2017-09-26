@@ -2,6 +2,7 @@ package ii_collections
 
 import util.TODO
 
+//public scope by default
 fun todoCollectionTask(): Nothing = TODO(
         """
            Common task for working with collections.
