@@ -12,6 +12,8 @@ fun example8() {
 
 fun Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered(): Set<Customer> {
     // Return customers who have more undelivered orders than delivered
-    val (positive, negative) = customers.partition { it.orders.any { !it.isDelivered }}
-    return negative.toSet()
+    return customers.filter { //filter combines java8 stream and filter
+        val (delivered, undelivered) = it.orders.partition { it.isDelivered } //same as java partition, split them based on predicate
+        undelivered.size > delivered.size //predicate for filter()
+    }.toSet()
 }
