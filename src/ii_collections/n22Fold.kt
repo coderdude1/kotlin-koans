@@ -16,6 +16,7 @@ fun Shop.getSetOfProductsOrderedByEveryCustomer(): Set<Product> {
     // Return the set of products ordered by every customer
     return customers.fold(allOrderedProducts, {
         orderedByAll, customer ->
-        todoCollectionTask()
+        //orderedByAll.intersect(customer.orderedProducts)  //supplied answer mine is below.  returns a set that contains elements in both collections
+        orderedByAll.filter {customer.orderedProducts.contains(it) }.toSet()//more verbose but it worked
     })
 }
