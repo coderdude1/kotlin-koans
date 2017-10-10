@@ -1,16 +1,10 @@
 package iii_conventions
 
 data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparable<MyDate> {
-    override fun compareTo(other: MyDate): Int {
-        //very java way, this works gonna try to kotlinfy it before checking the actual answer
-        var diff = 0
-        if (year != other.year ) //not sure about a when block since the test is cascading on a different property for each block
-            diff = year - other.year
-        else if(month != other.month)
-            diff = month - other.month;
-        else
-            diff = dayOfMonth - other.dayOfMonth
-        return diff
+    override fun compareTo(other: MyDate) = when {  //I cheated looked at answer.  this is MUCH better!  Uses lambda
+        year != other.year -> year - other.year
+        month != other.month -> month - other.month
+        else -> dayOfMonth - other.dayOfMonth
     }
 }
 
