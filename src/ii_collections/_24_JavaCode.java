@@ -11,6 +11,8 @@ import java.util.Map;
 public class _24_JavaCode extends JavaCode {
     public Collection<String> doSomethingStrangeWithCollection(Collection<String> collection) {
         Map<Integer, List<String>> groupsByLength = Maps.newHashMap();
+
+        //populate multimap with length->listOfStrings
         for (String s : collection) {
             List<String> strings = groupsByLength.get(s.length());
             if (strings == null) {
@@ -20,13 +22,15 @@ public class _24_JavaCode extends JavaCode {
             strings.add(s);
         }
 
+        //find the count of the list with most entries
         int maximumSizeOfGroup = 0;
-        for (List<String> group : groupsByLength.values()) {
+        for (List<String> group : groupsByLength.values()) { //this loop and next one can be combined with key entry set store the key of the longest list
             if (group.size() > maximumSizeOfGroup) {
                 maximumSizeOfGroup = group.size();
             }
         }
 
+        //now find the list with most entries and return it
         for (List<String> group : groupsByLength.values()) {
             if (group.size() == maximumSizeOfGroup) {
                 return group;
