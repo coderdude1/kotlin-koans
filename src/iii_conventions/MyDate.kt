@@ -1,7 +1,7 @@
 package iii_conventions
 
 data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparable<MyDate> {
-    override fun compareTo(other: MyDate) = when {  //I cheated looked at answer.  this is MUCH better!  Uses lambda
+    override fun compareTo(other: MyDate) = when {  //I cheated looked at answer.  this is MUCH better!  Uses lambda with when block
         year != other.year -> year - other.year
         month != other.month -> month - other.month
         else -> dayOfMonth - other.dayOfMonth
