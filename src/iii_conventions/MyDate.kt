@@ -17,4 +17,9 @@ enum class TimeInterval {
     YEAR
 }
 
-class DateRange(val start: MyDate, val endInclusive: MyDate)
+//This works too
+//class DateRange(override val start: MyDate, override val endInclusive: MyDate) : ClosedRange<MyDate>
+class DateRange(val start: MyDate, val endInclusive: MyDate) {
+    //Intellij offers to turn this into a rangeCheck myDate in start..endInclusive
+    operator fun contains(myDate: MyDate) : Boolean = start <= myDate && myDate <= endInclusive
+}
