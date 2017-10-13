@@ -8,8 +8,10 @@ data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparab
     }
 }
 
-//Functions that overload operators need to be marked with the operator modifier.
-operator fun MyDate.rangeTo(other: MyDate): DateRange = todoTask27()
+//Functions that overload (extend?) operators need to be marked with the operator modifier.
+operator fun MyDate.rangeTo(other: MyDate): DateRange {
+    return DateRange(this, other)
+}
 
 enum class TimeInterval {
     DAY,
