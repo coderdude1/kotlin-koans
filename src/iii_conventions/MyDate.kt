@@ -26,9 +26,8 @@ class DateRange(val start: MyDate, val endInclusive: MyDate) : Iterator<MyDate> 
 
     override fun hasNext(): Boolean = currentDate <= endInclusive  //expressionSyntax
 
-
     override fun next(): MyDate {
-        val retval = currentDate
+        val retval = currentDate  //need to return the intial value on first request
         currentDate = currentDate.addTimeIntervals(TimeInterval.DAY, 1)
         return retval
     }
