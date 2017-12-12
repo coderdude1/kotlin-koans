@@ -3,6 +3,7 @@ package i_introduction._0_Hello_World
 import util.TODO
 import util.doc0
 
+//Note the TODO() is actually a kotlin function that causes an exception to be thrown when invoked.
 fun todoTask0(): Nothing = TODO(
     """
         Task 0.
